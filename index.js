@@ -1,11 +1,7 @@
-/**
- * @format
- */
 import React from 'react';
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-
 import {
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
@@ -33,13 +29,13 @@ const PaperTheme = {
 const CombinedDefaultTheme = merge(NavigationDefaultTheme, PaperTheme);
 const index = () => {
   return (
-    // <ReduxProvider store={store}>
-    <PaperProvider theme={CombinedDefaultTheme}>
-      <NavigationContainer theme={CombinedDefaultTheme}>
-        <App />
-      </NavigationContainer>
-    </PaperProvider>
-    // </ReduxProvider>
+    <ReduxProvider store={store}>
+      <PaperProvider theme={CombinedDefaultTheme}>
+        <NavigationContainer theme={CombinedDefaultTheme}>
+          <App />
+        </NavigationContainer>
+      </PaperProvider>
+    </ReduxProvider>
   );
 };
 AppRegistry.registerComponent(appName, () => index);

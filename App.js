@@ -43,6 +43,7 @@ import {
 } from 'react-router-native';
 import Landing from './src/pages/Landing';
 import Home from './src/pages/Home';
+import {useSelector} from 'react-redux';
 
 const CombinedDefaultTheme = {
   ...PaperDefaultTheme,
@@ -67,13 +68,13 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  // const Logined = useSelector(state => state.auth.isLoggedIn);
-  const Logined = false;
+  const loggined = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Landing />
+      {!loggined && <Landing />}
+      {loggined && <Home />}
     </>
   );
 };
