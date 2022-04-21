@@ -3,7 +3,7 @@ import React from 'react';
 import ScrollViewContext from 'react-native/Libraries/Components/ScrollView/ScrollViewContext';
 import {Button} from 'react-native-paper';
 import {useDispatch} from 'react-redux';
-import {logout} from '../redux/actions';
+import {logout} from '../redux/reducers/auth.reducer';
 
 export default function Home() {
   const dispatch = useDispatch();
