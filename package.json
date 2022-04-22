@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'"
   },
   "resolutions": {
     "react-devtools-core": "4.14.0"
@@ -15,6 +16,8 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.1",
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.26.1",
     "react": "17.0.2",
     "react-native": "0.68.1",
     "react-native-paper": "^4.12.0",
@@ -23,7 +26,8 @@
     "react-redux": "^7.2.8",
     "react-router-native": "^6.3.0",
     "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

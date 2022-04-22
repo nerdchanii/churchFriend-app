@@ -11,7 +11,7 @@ import React from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import ClientIssueService from '../../components/ClientIssueService';
 import {useDispatch} from 'react-redux';
-import {login, logout} from '../../redux/actions';
+import {fetchLogin} from '../../redux/reducers/auth.reducer';
 const Landing = ({navigation}) => {
   const dispatch = useDispatch();
   const [user, setUser] = React.useState({});
@@ -19,7 +19,7 @@ const Landing = ({navigation}) => {
   const handleLogin = () => {
     if (user.email && user.pwd) {
       console.log(user);
-      dispatch(login(user));
+      dispatch(fetchLogin(user));
     }
   };
 
