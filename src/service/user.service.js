@@ -1,11 +1,15 @@
-class AuthService {
+// user who logged in can use this service
+class UserService {
   constructor({apis}) {
     this._apis = apis;
   }
+  get apis() {
+    return this._apis;
+  }
 
-  login({email, password}) {
-    return this._apis.auth.login({email, password});
+  fetchSomething(payload) {
+    return this.apis.auth.login(payload);
   }
 }
 
-export default AuthService;
+export default UserService;
