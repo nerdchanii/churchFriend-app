@@ -9,6 +9,7 @@ import {
   TextProps,
   ButtonProps,
   useThemeMode,
+  ImageProps,
 } from '@rneui/themed';
 import React from 'react';
 import {
@@ -88,7 +89,7 @@ const TextButton = ({children, onPress, ...props}: TextProps) => {
   );
 };
 
-const Logo = (props: ImageProps) => {
+const Logo = () => {
   return (
     <Image
       source={require('../../../assets/images/logo50.png')}

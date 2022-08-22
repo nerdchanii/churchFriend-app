@@ -17,30 +17,8 @@ import {
   Text,
 } from 'react-native';
 import {Colors, ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Button, DarkTheme} from 'react-native-paper';
-
-const Stack = createNativeStackNavigator();
-import {
-  NavigationContainer,
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme,
-} from '@react-navigation/native';
-import {
-  DarkTheme as PaperDarkTheme,
-  DefaultTheme as PaperDefaultTheme,
-  Provider as PaperProvider,
-} from 'react-native-paper';
-import merge from 'deepmerge';
-import {
-  Link,
-  NativeRouter,
-  Route,
-  Routes,
-  useNavigate,
-} from 'react-router-native';
-import MainRouter from './src/router';
 import {useThemeMode} from '@rneui/themed';
+import MainRouter from './src/router';
 
 const App = ({barstyle}: {barstyle: 'dark-content' | 'light-content'}) => {
   const scheme = useColorScheme();
