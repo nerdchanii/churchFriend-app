@@ -17,9 +17,7 @@ import {
   Text,
 } from 'react-native';
 import {Colors, ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
-import Header from './src/components/layout/Header';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Sign from './src/components/auth';
 import {Button, DarkTheme} from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
@@ -41,41 +39,21 @@ import {
   Routes,
   useNavigate,
 } from 'react-router-native';
-import Landing from './src/pages/Landing';
-import Home from './src/pages/Home';
-import {useSelector} from 'react-redux';
+import MainRouter from './src/router';
+import {useThemeMode} from '@rneui/themed';
 
-const CombinedDefaultTheme = {
-  ...PaperDefaultTheme,
-  ...NavigationDefaultTheme,
-  colors: {
-    ...PaperDefaultTheme.colors,
-    ...NavigationDefaultTheme.colors,
-  },
-};
-const CombinedDarkTheme = {
-  ...PaperDarkTheme,
-  ...NavigationDarkTheme,
-  colors: {
-    ...PaperDarkTheme.colors,
-    ...NavigationDarkTheme.colors,
-  },
-};
-
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-  const loggined = useSelector(state => state.auth.isLoggedIn);
+const App = ({barstyle}: {barstyle: 'dark-content' | 'light-content'}) => {
+  const scheme = useColorScheme();
+  const {setMode} = useThemeMode();
+  useEffect(() => {
+    setMode(scheme === 'dark' ? 'dark' : 'light');
+  }, [scheme]);
 
   return (
-    <>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      {!loggined && <Landing />}
-      {loggined && <Home />}
-    </>
+    <SafeAreaView style={{height: '100%'}}>
+      <StatusBar />
+      <MainRouter />
+    </SafeAreaView>
   );
 };
 
